@@ -5,6 +5,6 @@ A collection of useful one liners
 
 If you know you had introduced a specific string (e.g. `magic-string-to-locate`) to a specific file (e.g. `path/to/search`), you can run:
 
-    for SHA in $(git reflog --all | awk '{print $1}'); do if git show $SHA -- path/to/search | grep magic-string-to-locate >/dev/null; then echo found in $SHA; fi; done
+    for SHA in $(git reflog --all | awk '{print $1}'); do if git show $SHA -- path/to/search | grep magic-string-to-locate >/dev/null; then echo found in $SHA; fi; done | uniq
     
 which will display any matching git shas.
